@@ -1,0 +1,10 @@
+sudo apt update
+sudo apt install libgtk-3-dev
+
+
+gcc MediaPlayer.c -o MediaPlayer $(pkg-config --cflags --libs gtk+-3.0)
+gcc -o MonPG1 MonPG1.c `pkg-config --cflags --libs gtk+-3.0` -lm
+gcc -o MonPG2 MonPG2.c `pkg-config --cflags --libs gtk+-3.0` -lm
+gcc -o MonPG3 MonPG3.c `pkg-config --cflags --libs gtk+-3.0` -lm
+gcc -o MonPG4 MonPG4.c `pkg-config --cflags --libs gtk+-3.0` -lm
+gcc -o MonPG5 MonPG5.c `pkg-config --cflags --libs gtk+-3.0` -lm
