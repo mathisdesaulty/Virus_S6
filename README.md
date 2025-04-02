@@ -1,38 +1,39 @@
-_DESAULTY Mathis_
 
 # RAPPORT
 
 # Projet Sécurité
 
 
-## DESAULTY Mathis
+# Table des Matières
 
-- Bibliothèque GTK :.............................................................................................................................. Table des matières
-   - Récupérer les images.......................................................................................................................
-      - Vérifier l’extension.....................................................................................................................
-      - Taille de la liste...........................................................................................................................
-      - Charger l’image...........................................................................................................................
-   - Table.................................................................................................................................................
-   - Mise en place de l’image.................................................................................................................
-   - Les boutons......................................................................................................................................
-- Virus.....................................................................................................................................................
-      - Lancement du code.....................................................................................................................
-      - Recherche des fichiers cibles:.....................................................................................................
-      - Est ce que le fichiers est exécutable et valide ?..........................................................................
-      - Est ce que le programme est déjà infecté:...................................................................................
-      - Exécution de notre virus.............................................................................................................
-      - Transférer l’exécution.................................................................................................................
-      - Questions.....................................................................................................................................
-- Tests du virus........................................................................................................................................
-- Exécutables :.........................................................................................................................................
-      - Cryptage d’un string en code de César :.....................................................................................
-      - Deviner le nombre :.....................................................................................................................
-      - Calcule des racines d’un polynôme du 2nd degré :....................................................................
-      - Calcule des décimal de pi avec la méthode d’Archimède :......................................................
-      - Simulation de gravité :..............................................................................................................
+- **Bibliothèque GTK**  
+    - [Récupérer les images](#récupérer-les-images)  
+        - [Vérifier l’extension](#vérifier-l-extension)  
+        - [Taille de la liste](#taille-de-la-liste)  
+        - [Charger l’image](#charger-l-image)  
+    - [Table](#table)  
+    - [Mise en place de l’image](#mise-en-place-de-l-image)  
+    - [Les boutons](#les-boutons)  
 
+- **Virus**  
+    - [Lancement du code](#lancement-du-code)  
+    - [Recherche des fichiers cibles](#recherche-des-fichiers-cibles)  
+    - [Est-ce que le fichier est exécutable et valide ?](#est-ce-que-le-fichier-est-exécutable-et-valide)  
+    - [Est-ce que le programme est déjà infecté ?](#est-ce-que-le-programme-est-déjà-infecté)  
+    - [Exécution de notre virus](#exécution-de-notre-virus)  
+    - [Transférer l’exécution](#transférer-l-exécution)  
+    - [Questions](#questions)  
 
-_DESAULTY Mathis_
+- **Tests du virus**  
+    - [Lien vers la démonstration](https://youtu.be/h1y1_L1O6tE?si=4D5BUFq_iydxxMe)  
+
+- **Exécutables**  
+    - [Cryptage d’un string en code de César](#cryptage-d-un-string-en-code-de-césar)  
+    - [Deviner le nombre](#deviner-le-nombre)  
+    - [Calcul des racines d’un polynôme du 2nd degré](#calcul-des-racines-d-un-polynôme-du-2nd-degré)  
+    - [Calcul des décimales de π avec la méthode d’Archimède](#calcul-des-décimales-de-π-avec-la-méthode-d-archimède)  
+    - [Simulation de gravité](#simulation-de-gravité)  
+
 
 ### Bibliothèque GTK :
 
@@ -79,7 +80,6 @@ gtk_box_pack_start(GTK_BOX(box), label, FALSE, FALSE, 0);_
 Pour ajouter une image, on créer une nouvelle fois un Widget
 
 
-_DESAULTY Mathis_
 
 _GtkWidget *image = gtk_image_new_from_file("test.png");
 gtk_box_pack_start(GTK_BOX(box), image, TRUE, TRUE, 0);_
@@ -91,7 +91,7 @@ tout le temps d’utilisation (”gtk_main()”)
 
 _gtk_widget_show_all(window);_
 
-### Récupérer les images.......................................................................................................................
+### Récupérer les images
 
 La première partie de notre travail a été de récupérer les images pour pouvoir les utiliser. C’était
 
@@ -104,7 +104,7 @@ Nous avons alors mis en place plusieurs fonctions :
 - charger_images()
 - taille_liste()
 
-#### Vérifier l’extension.....................................................................................................................
+#### Vérifier l’extension
 
 Il était assez simple de vérifier l’extension des différents dossiers. Nous prenons une chaîne de
 
@@ -113,11 +113,11 @@ dans le nom du fichier. On le compare avec les différentes extensions acceptée
 
 ".bmp", ".jpeg", NULL}si on trouve une de ces chaînes, on renvoi alors True (1).
 
-#### Taille de la liste...........................................................................................................................
+#### Taille de la liste
 
 Permet simplement de vérifier la taille d’une liste en la parcourant et en incrémentant une valeur.
 
-#### Charger l’image...........................................................................................................................
+#### Charger l’image
 
 La fonction charger_image() est la plus complexe, dans celle-ci, nous cherchons premièrement les
 
@@ -130,16 +130,14 @@ alloue alors une chaîne de caractères spécialement à la taille du nombre de 
 l’extension qui est vérifiée. Et tous ces éléments sont revérifiés et passer dans une liste de chaîne de
 caractères.
 
-### Table.................................................................................................................................................
+### Table
 
 Nous avons décidé de faire cette composition avec un _gtk_table_new_ qui nous permet simplement
 
 de mettre en place les différents éléments.
 
 
-_DESAULTY Mathis_
-
-### Mise en place de l’image.................................................................................................................
+### Mise en place de l’image
 
 Les données que nous allons utilisé ont été mises dans une structure: AppData permettant de gérer
 
@@ -152,7 +150,7 @@ les images, elle contient :
 - le widget redimensionné pour qu’il n’y ait pas de problème
 - la boite qui permet un meilleur affichage des éléments
 
-### Les boutons......................................................................................................................................
+### Les boutons
 
 Chaque bouton est relié à une fonction, qui décrémente ou incrémente l’index en fonction du bouton
 
@@ -174,13 +172,13 @@ Nous pouvons voir notamment que dans les fonctions, nous utilisons des gboolean 
 plus adapter à l’utilisation de GTK. Une fois que l’index est changé et que l’image est
 redimensionnée on voit alors que l’image change bel et bien.
 
-## Virus.....................................................................................................................................................
+## Virus
 
 La plupart des informations que nous allons donner ici sont guidées dans le polycopié.
 
 Nous allons donc vous l’expliquer l’utilisation du virus en suivant l’exécution du code :
 
-#### Lancement du code.....................................................................................................................
+#### Lancement du code
 
 Dans le main, partie virus se lance seulement avec une seule ligne:
 
@@ -191,9 +189,7 @@ Cette ligne permet de démarrer le processus du virus compagnon en donnant comme
 _argv[0]_ qui correspond au nom du programme lancé par le script.
 
 
-_DESAULTY Mathis_
-
-#### Recherche des fichiers cibles:.....................................................................................................
+#### Recherche des fichiers cibles:
 
 La fonction *infecter_fichiers(const char chemin) permet d’infecter tous les fichiers du répertoire.
 
@@ -205,7 +201,7 @@ On teste alors plusieurs choses sur ces fichiers, premièrement qu’il ne corre
 
 ce qui pourrait causer des problème, mais nous avons aussi d’autres vérifications :
 
-#### Est ce que le fichiers est exécutable et valide ?..........................................................................
+#### Est ce que le fichiers est exécutable et valide ?
 
 On appelle pour cela la fonction *est_executable(const char fichier) qui va simplement, avec stat,
 
@@ -221,7 +217,7 @@ S_ISREG(st.st_mode) cette partie vérifie que le fichier est régulier, (access(
 
 vérifie que le fichier est bien exécutable, mais surtout par l’utilisateur.
 
-#### Est ce que le programme est déjà infecté:...................................................................................
+#### Est ce que le programme est déjà infecté:
 
 Nous faisons deux vérifications:
 
@@ -233,7 +229,7 @@ Nous faisons deux vérifications:
        _return 1;}_
 - Si tout est vérifié, on retourne 0 est le fichier n’est donc pas infecté.
 
-#### Exécution de notre virus.............................................................................................................
+#### Exécution de notre virus
 
 Maintenant, que nous avons bien vérifié que le fichier que nous avons dans notre répertoire est bien
 
@@ -252,10 +248,6 @@ qu’est un “retour en arrière”. En cas de problème dans la fonction infec
 place des retours en arrière:
 
 - Nous testons d’abord de renommer le script cible avec un “.old” ajouté
-
-
-_DESAULTY Mathis_
-
 - Si la modification ne marche pas nous renvoyons direct la fonction
 - Nous essayons d’ouvrir le fichier source, celui sur lequel on lance le script
 - Si cette ouverture ne marche pas:
@@ -280,7 +272,7 @@ Bien entendu, ce genre de print ne se fait pas dans un virus réel, ceux-ci sont
 
 comprendre le code, vérifier et prouver que celui-ci fonctionne.
 
-#### Transférer l’exécution.................................................................................................................
+#### Transférer l’exécution
 
 En effet, le virus n’est pas tout à fait fini. Dans l’état actuel des choses, si nous lançons notre virus
 
@@ -313,10 +305,7 @@ alors pas se lancer.
 
 Cette fonction est présente dans la fonction main, juste après l’exécution de notre virus.
 
-
-_DESAULTY Mathis_
-
-#### Questions.....................................................................................................................................
+#### Questions
 
 **Dans le cadre général d’un virus, préciser quelles sont les grandes fonctions que met en œuvre**
 
@@ -360,7 +349,7 @@ Les autres programmes vont alors tous lancer le MediaPlayer à la place de leur 
 
 discrétion du virus est corrompu.
 
-## Tests du virus........................................................................................................................................
+## Tests du virus
 
 Au lieu de faire plusieurs captures d’écran, nous avons préféré montrer directement ce que fait notre
 
@@ -368,15 +357,12 @@ virus et comment il se lance :
 
 https://youtu.be/h1y1_L1O6tE?si=4D5BUFq_iydxxMe
 
-## Exécutables :.........................................................................................................................................
+## Exécutables :
 
-#### Cryptage d’un string en code de César :.....................................................................................
+#### Cryptage d’un string en code de César :
 
 Le code de César est un moyen de cryptage simple qui consiste à modifier la place des lettres dans
 l’alphabet du message entré par rapport à une clé elle aussi entrée.
-
-
-_DESAULTY Mathis_
 
 Pour cela nous allons récupérer, via la fonction “scanf”, le message et la clé de décalage que
 l’utilisateur aura entré dans le terminal.
@@ -387,7 +373,7 @@ affiche le résultat dans le terminal
 
 Exécutable :
 
-#### Deviner le nombre :.....................................................................................................................
+#### Deviner le nombre :
 
 Ce programme est un petit jeu dont le but est de trouver un nombre aléatoire entre 1 et 100 que le
 programme choisira lors de son lancement, le tout avec le moins de tentatives possible. Afin d’aider
@@ -405,7 +391,7 @@ cette supposition au nombre à trouver. Suivant si cette dernière est supérieu
 nombre, le programme renverra une indication au joueur. Une fois le nombre trouvé, le joueur
 pourra décider de rejouer ou non grâce aux lignes :
 
-#### Calcule des racines d’un polynôme du 2nd degré :....................................................................
+#### Calcule des racines d’un polynôme du 2nd degré :
 
 Le calcul des racines d’une équation du type : ax²+bx+c se résout en calculant delta (b² - 4ac) et en
 calculant ensuite les racines en fonction du signe de delta. Pour cela rien de plus simple en C. On
@@ -415,9 +401,6 @@ racines.
 Pour ce programme, nous avons implémenter une interface graphique avec GTK afin d’entrer les
 valeurs de coefficients et d’afficher les réponses sous forme d’un graphique avec la courbe
 représentative de la fonction créer avec les entrées.
-
-
-_DESAULTY Mathis_
 
 Pour simplifier les calculs, on utilise une structure “Polynome” qui contient les coefficient a,b et c,
 les potentiels racines r1 et r2 et le nombre de racines qui sera déterminé par le signe de delta. On
@@ -446,7 +429,7 @@ une ligne point par point avec :
 
 Et on dessine la courbe une fois terminé avec “cairo_strocke”.
 
-#### Calcule des décimal de pi avec la méthode d’Archimède :......................................................
+#### Calcule des décimal de pi avec la méthode d’Archimède :
 
 La méthode d’Archimède, découvert vers 250 avant J-C par le célébré scientifique du même nom,
 permet d’obtenir une approximation de π en calculant le périmètre d’un polynôme régulier. C’est à
@@ -459,9 +442,6 @@ simplement en paramètre un entier n (le nombre de côté du polynôme) :
 Pour la partie graphique de ce programme, on créer une fonction “activate” qui va s’occuper de
 l’ensemble des initialisations graphiques que l’on aura besoin.
 
-
-_DESAULTY Mathis_
-
 On créer alors une fenêtre, une grille pour ordonner nos éléments, plusieurs texte dont un pour entré
 le nombre de côtés du polynôme, un bouton pour dessiner la figure et calculer l’approximation et
 une zone de dessin où la figure sera dessiner.
@@ -473,7 +453,7 @@ dessiner le graphe des polynôme du 2nd degrés. Une fois les coordonnés du cen
 calculer, on va recalculer les sommets de notre figures en fonctions des paramètres que l’on aura
 passé dans la fonction. On utilise ensuite “cairo_move_to” pour dessiner point par point la figure.
 
-#### Simulation de gravité :..............................................................................................................
+#### Simulation de gravité :
 
 Ce programme créer une simulation de gravité en calculer en temps réel l’ensemble des collisions
 possibles, de façon à recréer un environnement physique réel. L’utilisateur peut, à l’aide d’un clique
@@ -502,9 +482,6 @@ permettre de faire une mise a jour de l’interface tout les x temps en rappelan
 Cette fonction update sera donc appelée un nombre de fois considérable. Cette fonction contient elle
 même un appel vers une fonction de gtk qui permet de redessiner la fenêtre et vers une autre
 fonction qui va permettre de calculer toute la partie physique de notre programme.
-
-
-_DESAULTY Mathis_
 
 La fonction ‘update_physique’ s’occupe donc de configurer la physique de notre programme à
 chaque appel de la fonction update.
